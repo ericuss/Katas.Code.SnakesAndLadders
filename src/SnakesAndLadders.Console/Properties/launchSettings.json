@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SnakesAndLadders.Console": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

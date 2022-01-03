@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:  
+  unit-tests:
+    image: ${DOCKER_REGISTRY:-snakesandladders}/unittests:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: tests/SnakesAndLadders.UnitTests/Dockerfile
+    entrypoint: ["/bin/sh","-c"]
+    command:
+    - |
+      dotnet test -r '/tests/unit/' --logger trx --collect:'XPlat Code Coverage'
+    volumes: 
+      - ${TEST_RESULTS_DIR:-./tests-results/}:/tests
+
+
