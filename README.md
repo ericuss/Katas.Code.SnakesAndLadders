@@ -1,8 +1,6 @@
-# Voxel Technical Interview - SnakesAndLadders
+[![Docker Image CI](https://github.com/ericuss/Katas.Code.SnakesAndLadders/actions/workflows/docker-image.yml/badge.svg)](https://github.com/ericuss/Katas.Code.SnakesAndLadders/actions/workflows/docker-image.yml)
 
-Thanks for willing to apply to work with us. You can see our open positions [here](https://www.voxelgroup.net/people/en/home-eng/#page6)
-
-We'd like you to solve this little coding exercise. It shouldn't take you more than one hour. The goal of the exercise is to get a glimpse of you as a developer and to be a starting point to have a conversation. 
+# SnakesAndLadders
 
 ## Exercise
 

@@ -18,3 +18,4 @@ RUN dotnet publish "SnakesAndLadders.UnitTests.csproj" -c Release -o /app/publis
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "test", "SnakesAndLadders.UnitTests.dll"]

@@ -6,11 +6,5 @@ services:
     build:
       context: .
       dockerfile: tests/SnakesAndLadders.UnitTests/Dockerfile
-    entrypoint: ["/bin/sh","-c"]
-    command:
-    - |
-      dotnet test -r '/tests/unit/' --logger trx --collect:'XPlat Code Coverage'
-    volumes: 
-      - ${TEST_RESULTS_DIR:-./tests-results/}:/tests
 
 
