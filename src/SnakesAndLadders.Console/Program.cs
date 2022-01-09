@@ -26,10 +26,12 @@ class Program
         this.ShowPlayers();
 
         Console.WriteLine("Exit to close");
+        string? command;
 
-        for (var command = ""; command != "exit"; command = Console.ReadLine()?.ToLowerInvariant())
+        do
         {
             int movement;
+            command = Console.ReadLine()?.ToLowerInvariant();
             if (command == "random")
             {
                 movement = _random.Next(1, 6);
@@ -37,7 +39,7 @@ class Program
             else if (command?.StartsWith("move") == true)
             {
                 // should be validated
-                movement = int.Parse(command.Split("move")[1]); 
+                movement = int.Parse(command.Split("move")[1]);
             }
             else
             {
@@ -48,7 +50,7 @@ class Program
             _gameService.Move(_gameService.Players[_nextPlayerIndex].Id, movement);
             this.CalculateNexPlayer();
             this.ShowPlayers();
-        }
+        } while(command != "exit" && !_gameService.Players.Any(x => x.Winner));
     }
 
     public void CalculateNexPlayer()
@@ -62,6 +64,8 @@ class Program
         Console.WriteLine();
         _gameService.Players.ForEach(x => Console.WriteLine(x));
 
-        Console.WriteLine($"Next player: {_nextPlayerIndex + 1}");
+        var winner = _gameService.Players.FirstOrDefault(x => x.Winner);
+        if (winner == null) Console.WriteLine($"Next player: {_nextPlayerIndex + 1}");
+        else Console.WriteLine($"Player {winner.Id} won the game");
     }
 }

@@ -12,6 +12,8 @@
 
         public int Position { get; set; }
 
+        public bool Winner { get => Position == 100; }
+
         public override string ToString()
         {
             return $"Id: {Id}, Position: {Position}";
