@@ -22,7 +22,10 @@
                 throw new Exception("Player not found");
             }
 
-            player.Position += moveSpaces;
+            var movedPosition = player.Position + moveSpaces;
+            if (movedPosition > 100) return;
+
+            player.Position = movedPosition;
         }
     }
 }
